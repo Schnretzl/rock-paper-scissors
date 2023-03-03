@@ -1,6 +1,9 @@
-let playerSelection = getPlayerChoice();
-let computerSelection = getComputerChoice();
 
+let playerWins = 0;
+let computerWins = 0;
+let ties = 0;
+let playerSelection;
+let computerSelection;
 
 
 function getComputerChoice(){
@@ -9,12 +12,16 @@ function getComputerChoice(){
 
 function getPlayerChoice(){
     let input = prompt("Rock, paper, or scissors?");
-    while(input.toUpperCase() != ("ROCK" || "PAPER" || "SCISSORS")){
+    let inputUpper = input.toUpperCase();
+    while((inputUpper != "ROCK") 
+        && (inputUpper != "PAPER")
+        && (inputUpper != "SCISSORS")){
         alert("Input must be rock, paper, or scissors!");
         input = prompt("Rock, paper, or scissors?");
+        inputUpper = input.toUpperCase();
     }
 
-    return(input.toUpperCase());
+    return(inputUpper);
 }
 
 //----------------------------------------------------------------
@@ -42,14 +49,17 @@ function playRound(playerSelection, computerSelection){
     }
 
     if(playerSelectionToInt - computerSelection === 0){            //tie        
+        ties++;
         return("There was a tie!");
     }
     else if((playerSelectionToInt - computerSelection === 1) ||    //player win
             playerSelectionToInt - computerSelection === -2){
+                playerWins++;
                 return(`You win! ${playerSelectionFirstUpper} beats ${computerSelectionText}`);       
     }
     else if((playerSelectionToInt - computerSelection === -1) ||   //player lose
             (playerSelectionToInt - computerSelection === 2)){
+                computerWins++;
                 return(`You lose! ${computerSelectionText} beats ${playerSelectionFirstUpper}`);           
     }
     else{
@@ -58,4 +68,20 @@ function playRound(playerSelection, computerSelection){
     }
 }
     
-    console.log(playRound(playerSelection, computerSelection));
+
+function game(){
+    for(let i = 0; i < 5; i++){
+        playerSelection = getPlayerChoice();
+        computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+        console.log(`Current score:\nPlayer: ${playerWins}, Computer: ${computerWins}, Ties: ${ties}`);
+    }
+}
+    /*play a round
+      determine winner and add 1 to their wins
+      move to next round
+      do this 5 times*/
+
+//-------------------------------------------------------------------------------------
+
+game();
