@@ -69,8 +69,8 @@ function playRound(playerSelection, computerSelection){
 }
     
 
-function game(){
-    for(let i = 0; i < 5; i++){
+function game(rounds){
+    for(let i = 0; i < rounds; i++){
         playerSelection = getPlayerChoice();
         computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
@@ -84,4 +84,4 @@ function game(){
 
 //-------------------------------------------------------------------------------------
 
-game();
+game(1);
