@@ -22,14 +22,16 @@ function getPlayerChoice(){
     // }
 
     // return(inputUpper);
-
-    const rockBtn = document.querySelector('#rock');
-    rockBtn.onclick = () => return("ROCK");
-    const paperBtn = document.querySelector('#paper');
-    paperBtn.onclick = () => return("PAPER");
-    const scissorsBtn = document.querySelector('#scissors');
-    scissorsBtn.onclick = () => return("SCISSORS");
 }
+    let choice;
+    const rockBtn = document.querySelector('#Rock');
+    rockBtn.onclick = () => console.log(playRound("ROCK", getComputerChoice()));
+    const paperBtn = document.querySelector('#Paper');
+    paperBtn.onclick = () => console.log(playRound("PAPER", getComputerChoice()));
+    const scissorsBtn = document.querySelector('#Scissors');
+    scissorsBtn.onclick = () => console.log(playRound("SCISSORS", getComputerChoice()));
+
+
 
 //----------------------------------------------------------------
 
@@ -77,12 +79,13 @@ function playRound(playerSelection, computerSelection){
     
 
 function game(rounds){
-    for(let i = 0; i < rounds; i++){
-        playerSelection = getPlayerChoice();
-        computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-        console.log(`Current score:\nPlayer: ${playerWins}, Computer: ${computerWins}, Ties: ${ties}`);
-    }
+    /* for(let i = 0; i < rounds; i++){
+         playerSelection = getPlayerChoice();
+         computerSelection = getComputerChoice();
+         console.log(playRound(playerSelection, computerSelection));
+         console.log(`Current score:\nPlayer: ${playerWins}, Computer: ${computerWins}, Ties: ${ties}`);
+    } */
+
 }
     /*play a round
       determine winner and add 1 to their wins
