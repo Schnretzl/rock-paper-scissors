@@ -11,17 +11,24 @@ function getComputerChoice(){
 }
 
 function getPlayerChoice(){
-    let input = prompt("Rock, paper, or scissors?");
-    let inputUpper = input.toUpperCase();
-    while((inputUpper != "ROCK") 
-        && (inputUpper != "PAPER")
-        && (inputUpper != "SCISSORS")){
-        alert("Input must be rock, paper, or scissors!");
-        input = prompt("Rock, paper, or scissors?");
-        inputUpper = input.toUpperCase();
-    }
+    //let input = prompt("Rock, paper, or scissors?");
+    // let inputUpper = input.toUpperCase();
+    // while((inputUpper != "ROCK") 
+    //     && (inputUpper != "PAPER")
+    //     && (inputUpper != "SCISSORS")){
+    //     alert("Input must be rock, paper, or scissors!");
+    //     input = prompt("Rock, paper, or scissors?");
+    //     inputUpper = input.toUpperCase();
+    // }
 
-    return(inputUpper);
+    // return(inputUpper);
+
+    const rockBtn = document.querySelector('#rock');
+    rockBtn.onclick = () => return("ROCK");
+    const paperBtn = document.querySelector('#paper');
+    paperBtn.onclick = () => return("PAPER");
+    const scissorsBtn = document.querySelector('#scissors');
+    scissorsBtn.onclick = () => return("SCISSORS");
 }
 
 //----------------------------------------------------------------
