@@ -32,15 +32,18 @@ function getPlayerChoice(){
     
         const rockBtn = document.querySelector('#rock');
         rockBtn.onclick = () => {results.textContent = (playRound("ROCK", getComputerChoice()));
-            (playerWins === 5 ? document.querySelector('#finalWin').textContent = "Winner!" : "");}
+            displayResults();
+        }
         
         const paperBtn = document.querySelector('#paper');
         paperBtn.onclick = () => {results.textContent = (playRound("PAPER", getComputerChoice()));
-            (playerWins === 5 ? document.querySelector('#finalWin').textContent = "Winner!" : "");}
+            displayResults();
+        }
         
         const scissorsBtn = document.querySelector('#scissors');
         scissorsBtn.onclick = () => {results.textContent = (playRound("SCISSORS", getComputerChoice()));
-            (playerWins === 5 ? document.querySelector('#finalWin').textContent = "Winner!" : "");}
+            displayResults();
+        }
 
 
 
@@ -86,6 +89,13 @@ function playRound(playerSelection, computerSelection){
         return("there was an error");
         //error
     }
+}
+
+function displayResults(){
+    document.querySelector('#cpuWins').textContent = "CPU wins:" + computerWins;
+    document.querySelector('#playerWins').textContent = "Player wins:" + playerWins;
+    playerWins === 5 ? document.querySelector('#finalWin').textContent = "Winner!" : "";
+    computerWins === 5 ? document.querySelector('#finalWin').textContent = "Loser!" : "";
 }
     
 
