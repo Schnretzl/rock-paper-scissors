@@ -1,0 +1,22 @@
+img{
+    width: 200px;
+    height: auto;
+}
+
+button{
+    border-style: none;
+    border-radius: 10px;
+    width: 200px;
+    height: 300px;
+    margin: 30px;
+}
+
+#buttonContainer{
+    display: flex;
+    align-content: center;    
+    justify-content: center;
+}
+
+body{
+    background-color: coral;
+}
