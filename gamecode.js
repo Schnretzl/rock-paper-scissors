@@ -15,18 +15,29 @@ function getComputerChoice(){
 
     
         const rockBtn = document.querySelector('#rock');
-        rockBtn.onclick = () => {results.textContent = (playRound("ROCK", getComputerChoice()));
-            displayResults();
+        rockBtn.onclick = () => {
+            if(playerWins === 0 && computerWins === 0)
+                clearFinalResults();
+            document.querySelector('#results').textContent = (playRound("ROCK", getComputerChoice()));
+            displayResults();            
         }
         
         const paperBtn = document.querySelector('#paper');
-        paperBtn.onclick = () => {results.textContent = (playRound("PAPER", getComputerChoice()));
+        paperBtn.onclick = () => {
+            if(playerWins === 0 && computerWins === 0)
+                clearFinalResults();
+            results.textContent = (playRound("PAPER", getComputerChoice()));
             displayResults();
+            
         }
         
         const scissorsBtn = document.querySelector('#scissors');
-        scissorsBtn.onclick = () => {results.textContent = (playRound("SCISSORS", getComputerChoice()));
+        scissorsBtn.onclick = () => {
+            if(playerWins === 0 && computerWins === 0)
+                clearFinalResults();
+            results.textContent = (playRound("SCISSORS", getComputerChoice()));
             displayResults();
+            
         }
 
 
@@ -77,6 +88,21 @@ function playRound(playerSelection, computerSelection){
 function displayResults(){
     document.querySelector('#cpuWins').textContent = "CPU wins:" + computerWins;
     document.querySelector('#playerWins').textContent = "Player wins:" + playerWins;
-    playerWins === 5 ? document.querySelector('#finalWin').textContent = "Player wins!" : "";
-    computerWins === 5 ? document.querySelector('#finalWin').textContent = "CPU wins!" : "";
+    if(playerWins === 5){
+        document.querySelector('#finalWin').textContent = "Player wins!";
+        resetScore();
+    }
+    if(computerWins === 5){
+        document.querySelector('#finalWin').textContent = "CPU wins!";
+        resetScore();
+    }
+}
+
+function resetScore(){
+    playerWins = 0;
+    computerWins = 0;
+}
+
+function clearFinalResults(){
+    document.querySelector('#finalWin').textContent = "";
 }
