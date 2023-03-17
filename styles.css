@@ -4,11 +4,19 @@ img{
 }
 
 button{
-    border-style: none;
-    border-radius: 10px;
-    width: 200px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: black;
+    background-color: transparent;
+    width: 220px;
     height: 300px;
     margin: 30px;
+    transition-duration: .2s;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: cornsilk
 }
 
 #buttonContainer{
@@ -19,4 +27,13 @@ button{
 
 body{
     background-color: coral;
+    
 }
+
+#text{
+    color: darkblue;
+    font-size: 30px;
+    padding-left: 200px;
+    width: auto;
+}
+
