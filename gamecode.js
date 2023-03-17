@@ -4,6 +4,9 @@ let computerWins = 0;
 let ties = 0;
 let playerSelection;
 let computerSelection;
+// results
+const playerWinMsg = document.createTextNode("You win!");
+const cpuWinMsg = "Computer wins!";
 
 
 function getComputerChoice(){
@@ -24,12 +27,20 @@ function getPlayerChoice(){
     // return(inputUpper);
 }
     let choice;
-    const rockBtn = document.querySelector('#Rock');
-    rockBtn.onclick = () => console.log(playRound("ROCK", getComputerChoice()));
-    const paperBtn = document.querySelector('#Paper');
-    paperBtn.onclick = () => console.log(playRound("PAPER", getComputerChoice()));
-    const scissorsBtn = document.querySelector('#Scissors');
-    scissorsBtn.onclick = () => console.log(playRound("SCISSORS", getComputerChoice()));
+    const results = document.querySelector('#results');
+
+    
+        const rockBtn = document.querySelector('#rock');
+        rockBtn.onclick = () => {results.textContent = (playRound("ROCK", getComputerChoice()));
+            (playerWins === 5 ? document.querySelector('#finalWin').textContent = "Winner!" : "");}
+        
+        const paperBtn = document.querySelector('#paper');
+        paperBtn.onclick = () => {results.textContent = (playRound("PAPER", getComputerChoice()));
+            (playerWins === 5 ? document.querySelector('#finalWin').textContent = "Winner!" : "");}
+        
+        const scissorsBtn = document.querySelector('#scissors');
+        scissorsBtn.onclick = () => {results.textContent = (playRound("SCISSORS", getComputerChoice()));
+            (playerWins === 5 ? document.querySelector('#finalWin').textContent = "Winner!" : "");}
 
 
 
@@ -64,7 +75,7 @@ function playRound(playerSelection, computerSelection){
     else if((playerSelectionToInt - computerSelection === 1) ||    //player win
             playerSelectionToInt - computerSelection === -2){
                 playerWins++;
-                return(`You win! ${playerSelectionFirstUpper} beats ${computerSelectionText}`);       
+                return(`You win! ${playerSelectionFirstUpper} beats ${computerSelectionText}`);
     }
     else if((playerSelectionToInt - computerSelection === -1) ||   //player lose
             (playerSelectionToInt - computerSelection === 2)){
